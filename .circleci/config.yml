@@ -23,7 +23,6 @@ jobs:
       - run:
           name: Run tests
           command: pytest --cov=. --cov-config=./coverage.ini --cov-report=xml:./coverage.xml
-	  - codecov/upload:
+      - codecov/upload:
           file: 'coverage.xml'
           token: $CODECOV_TOKEN
-
