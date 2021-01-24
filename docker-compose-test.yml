@@ -9,4 +9,4 @@ services:
     volumes:
       - .:/test
     working_dir: /test
-    command: pytest
+    command: pytest -c tests/pytest.ini
