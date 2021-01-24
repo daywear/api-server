@@ -17,6 +17,9 @@ jobs:
       - run:
           name: Package Setup
           command: |
+            apk update
+            apk add curl curl-dev
+            apk add bash bash-dev
             pip install --upgrade pip
             pip install --no-cache-dir -r requirements.txt
       - run:
