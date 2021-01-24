@@ -1,0 +1,23 @@
+version: 2.1
+
+workflows:
+  test:
+    jobs:
+      - build-and-test
+
+
+jobs:
+  build-and-test:
+    docker:
+      - image: python:3.9-alpine
+    steps:
+      - checkout
+      - run:
+          name: Package Setup
+          command: |
+            pip install --upgrade pip
+            pip install --no-cache-dir -r requirements.txt
+      - run:
+          name: Run tests
+          command: pytest
+
