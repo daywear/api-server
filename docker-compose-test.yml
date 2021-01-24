@@ -9,4 +9,4 @@ services:
     volumes:
       - .:/test
     working_dir: /test
-    command: pytest --cov-report=xml --cov=.
+    command: pytest -c tests/pytest.ini

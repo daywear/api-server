@@ -8,7 +8,6 @@ workflows:
     jobs:
       - build-and-test
 
-
 jobs:
   build-and-test:
     docker:
@@ -22,7 +21,7 @@ jobs:
             pip install --no-cache-dir -r requirements.txt
       - run:
           name: Run tests
-          command: pytest --cov=. --cov-config=./coverage.ini --cov-report=xml:./coverage.xml
+          command: pytest . --cov=. --cov-report=xml:./coverage.xml -c tests/pytest.ini
       - codecov/upload:
           file: 'coverage.xml'
           token: $CODECOV_TOKEN
